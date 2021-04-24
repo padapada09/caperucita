@@ -106,22 +106,33 @@ public class Helper {
    * La carga se da de manear transpuesta porque si no es muy dificil cargarlo
    * 
    * Mapa: //////////////////////////////////////////////////////////////////////
-   * 0 0 0 0 0 1 ////////////////////////////////////////////////////////////////
-   * 0 0 0 0 0 0 ////////////////////////////////////////////////////////////////
-   * 0 0 0 0 0 0 ////////////////////////////////////////////////////////////////
-   * 0 0 0 0 0 0 ////////////////////////////////////////////////////////////////
+   * 2 0 0 0 1 0 0 2 1 //////////////////////////////////////////////////////////
+   * 0 1 0 0 0 0 0 0 0 //////////////////////////////////////////////////////////
+   * 0 0 0 0 0 2 1 0 0 //////////////////////////////////////////////////////////
+   * 1 1 0 0 0 1 0 0 0 //////////////////////////////////////////////////////////
+   * 0 1 1 0 0 0 0 0 0 //////////////////////////////////////////////////////////
+   * 0 3 1 1 1 0 1 0 1 //////////////////////////////////////////////////////////
+   * 0 0 0 1 0 0 0 0 1 //////////////////////////////////////////////////////////
    */
   public static ArrayList<ArrayList<Integer>> makeMap(boolean invisible) {
     ArrayList<ArrayList<Integer>> mapa = new ArrayList<>();
-    mapa.add(makeRow(0, 0, 0, 0));
-    mapa.add(makeRow(0, 0, 0, 0));
-    mapa.add(makeRow(0, 0, 0, 0));
-    mapa.add(makeRow(0, 0, 0, 0));
-    mapa.add(makeRow(0, 0, 0, 0));
-    mapa.add(makeRow(1, 0, 0, 0));
+    mapa.add(makeRow(2, 0, 0, 1, 0, 0, 0));
+    mapa.add(makeRow(0, 1, 0, 1, 1, 3, 0));
+    mapa.add(makeRow(0, 0, 0, 0, 1, 1, 0));
+    mapa.add(makeRow(0, 0, 0, 0, 0, 1, 1));
+    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 0));
+    mapa.add(makeRow(0, 0, 2, 1, 0, 0, 0));
+    mapa.add(makeRow(0, 0, 1, 0, 0, 1, 0));
+    mapa.add(makeRow(2, 0, 0, 0, 0, 0, 0));
+    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 1));
     if (invisible) {
       for (ArrayList<Integer> fila : mapa) {
-        Collections.fill(fila, 0);
+        for (Integer cell : fila) {
+          if (cell == PercepcionCaperucitaRoja.PERCEPCION_DULCE)
+            cell = 0;
+          if (cell == PercepcionCaperucitaRoja.PERCEPCION_LOBO)
+            cell = 0;
+        }
       }
     }
     return mapa;

@@ -8,9 +8,13 @@ import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.solver.search.*;
 import tp.ia.caperucita.actions.IrAlEste;
+import tp.ia.caperucita.actions.IrAlEsteJuntandoCaramelo;
 import tp.ia.caperucita.actions.IrAlNorte;
+import tp.ia.caperucita.actions.IrAlNorteJuntandoCaramelo;
 import tp.ia.caperucita.actions.IrAlOeste;
+import tp.ia.caperucita.actions.IrAlOesteJuntandoCaramelo;
 import tp.ia.caperucita.actions.IrAlSur;
+import tp.ia.caperucita.actions.IrAlSurJuntandoCaramelo;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +30,10 @@ public class AgenteCaperucitaRoja extends SearchBasedAgent {
     operadores.add(new IrAlEste());
     operadores.add(new IrAlSur());
     operadores.add(new IrAlOeste());
+    operadores.add(new IrAlNorteJuntandoCaramelo());
+    operadores.add(new IrAlEsteJuntandoCaramelo());
+    operadores.add(new IrAlSurJuntandoCaramelo());
+    operadores.add(new IrAlOesteJuntandoCaramelo());
     Problem problem = new Problem(objetivo, estadoCaperucitaRoja, operadores);
     this.setProblem(problem);
   }
