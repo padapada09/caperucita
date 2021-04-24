@@ -1,0 +1,9 @@
+{
+  "java.project.sourcePaths": [
+    "src",
+    "lib/faia/src"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "redhat.java",
+  "java.help.firstView": "none"
+}
