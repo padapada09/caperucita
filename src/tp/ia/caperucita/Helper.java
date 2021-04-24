@@ -2,7 +2,6 @@ package tp.ia.caperucita;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Helper {
 

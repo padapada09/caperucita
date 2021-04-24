@@ -49,6 +49,7 @@ public class IrAlEsteJuntandoCaramelo extends SearchAction {
 
     estadoAgenteCaperucitaRoja.setX(proximaColumna);
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
+    estadoAgenteCaperucitaRoja.setDulces(estadoAgenteCaperucitaRoja.getDulces() + 1);
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaX(proximaColumna);
 
     return estadoAmbienteCaperucitaRoja;
@@ -79,6 +80,7 @@ public class IrAlEsteJuntandoCaramelo extends SearchAction {
 
     estadoAgenteCaperucitaRoja.setX(proximaColumna);
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
+    estadoAgenteCaperucitaRoja.setDulces(estadoAgenteCaperucitaRoja.getDulces() + 1);
 
     return estadoAgenteCaperucitaRoja;
   }
