@@ -48,6 +48,7 @@ public class IrAlSur extends SearchAction {
     int proximaFila = Helper.enLineaDeVista(columna, y, +1, PercepcionCaperucitaRoja.PERCEPCION_ARBOL) - 1;
 
     estadoAgenteCaperucitaRoja.setY(proximaFila);
+    estadoAgenteCaperucitaRoja.contarCeldaVisitada();
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaY(proximaFila);
 
     return estadoAmbienteCaperucitaRoja;
@@ -77,6 +78,7 @@ public class IrAlSur extends SearchAction {
     int proximaFila = Helper.enLineaDeVista(columna, y, +1, PercepcionCaperucitaRoja.PERCEPCION_ARBOL) - 1;
 
     estadoAgenteCaperucitaRoja.setY(proximaFila);
+    estadoAgenteCaperucitaRoja.contarCeldaVisitada();
 
     return estadoAgenteCaperucitaRoja;
   }
