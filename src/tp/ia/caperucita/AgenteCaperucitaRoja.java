@@ -45,7 +45,8 @@ public class AgenteCaperucitaRoja extends SearchBasedAgent {
   public Action selectAction() {
 
     // Create the search strategy
-    BreathFirstSearch strategy = new BreathFirstSearch();
+    IStepCostFunction costFunction = new FuncionCostoCaperucitaRoja();
+    UniformCostSearch strategy = new UniformCostSearch(costFunction);
 
     /**
      * Another search strategy examples:
