@@ -28,7 +28,7 @@ public class EstadoAmbienteCaperucitaRoja extends EnvironmentState {
   @Override
   public void initState() {
     this.caperucitaRojaX = 8;
-    this.caperucitaRojaY = 4;
+    this.caperucitaRojaY = 3;
     this.world = Helper.makeMap(false);
   }
 
