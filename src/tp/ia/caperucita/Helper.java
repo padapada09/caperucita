@@ -109,29 +109,16 @@ public class Helper {
     return lineaDeVista;
   }
 
-  /**
-   * La carga se da de manear transpuesta porque si no es muy dificil cargarlo
-   * 
-   * Mapa: //////////////////////////////////////////////////////////////////////
-   * 2 0 0 0 1 0 0 2 1 //////////////////////////////////////////////////////////
-   * 0 1 0 0 0 0 0 0 0 //////////////////////////////////////////////////////////
-   * 0 0 0 0 0 2 1 0 0 //////////////////////////////////////////////////////////
-   * 1 1 0 0 0 1 0 0 0 //////////////////////////////////////////////////////////
-   * 0 1 1 0 0 0 0 0 0 //////////////////////////////////////////////////////////
-   * 0 3 1 1 1 0 1 0 1 //////////////////////////////////////////////////////////
-   * 0 0 0 1 4 0 0 0 1 //////////////////////////////////////////////////////////
-   */
   public static ArrayList<ArrayList<Integer>> makeMap(boolean invisible) {
-    ArrayList<ArrayList<Integer>> mapa = new ArrayList<>();
-    mapa.add(makeRow(2, 0, 0, 1, 0, 0, 0));
-    mapa.add(makeRow(0, 1, 0, 1, 1, 3, 0));
-    mapa.add(makeRow(0, 0, 0, 0, 1, 1, 0));
-    mapa.add(makeRow(0, 0, 0, 0, 0, 1, 1));
-    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 4));
-    mapa.add(makeRow(0, 0, 2, 1, 0, 0, 0));
-    mapa.add(makeRow(0, 0, 1, 0, 0, 1, 0));
-    mapa.add(makeRow(2, 0, 0, 0, 0, 0, 0));
-    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 1));
+    ArrayList<ArrayList<Integer>> mapa = makeMapFromArray(new int[][] { ////////
+        { 2, 0, 0, 0, 1, 0, 0, 2, 1 }, /////////////////////////////////////////////
+        { 0, 1, 0, 0, 0, 0, 0, 0, 0 }, /////////////////////////////////////////////
+        { 0, 0, 0, 0, 0, 2, 1, 0, 0 }, /////////////////////////////////////////////
+        { 1, 1, 0, 0, 0, 1, 0, 0, 0 }, /////////////////////////////////////////////
+        { 0, 1, 1, 0, 0, 0, 0, 0, 0 }, /////////////////////////////////////////////
+        { 0, 3, 1, 1, 1, 0, 1, 0, 1 }, /////////////////////////////////////////////
+        { 0, 0, 0, 1, 4, 0, 0, 0, 1 } /////////////////////////////////////////////
+    });
     if (invisible) {
       for (ArrayList<Integer> fila : mapa) {
         for (Integer cell : fila) {
@@ -149,5 +136,16 @@ public class Helper {
 
   public static ArrayList<Integer> makeRow(Integer... values) {
     return new ArrayList<Integer>(Arrays.asList(values));
+  }
+
+  public static ArrayList<ArrayList<Integer>> makeMapFromArray(int[][] array) {
+    ArrayList<ArrayList<Integer>> map = new ArrayList<>();
+    for (int x = 0; x < array[0].length; x++) {
+      map.add(new ArrayList<>());
+      for (int y = 0; y < array.length; y++) {
+        map.get(x).add(array[y][x]);
+      }
+    }
+    return map;
   }
 }
