@@ -21,8 +21,6 @@ public class PercepcionCaperucitaRoja extends Perception {
   private ArrayList<Integer> lineaDeVistaOeste;
   private int caperucitaRojaX;
   private int caperucitaRojaY;
-  private int salidaX;
-  private int salidaY;
 
   public PercepcionCaperucitaRoja() {
   }
@@ -46,8 +44,6 @@ public class PercepcionCaperucitaRoja extends Perception {
     this.setLineaDeVistaOeste(Helper.getLineaDeVista(world, x, y, Helper.OESTE));
     this.setCaperucitaRojaX(x);
     this.setCaperucitaRojaY(y);
-    this.setSalidaX(estadoAmbienteCaperucitaRoja.getSalidaX());
-    this.setSalidaY(estadoAmbienteCaperucitaRoja.getSalidaY());
   }
 
   @Override
@@ -104,21 +100,5 @@ public class PercepcionCaperucitaRoja extends Perception {
 
   public void setCaperucitaRojaY(int caperucitaRojaY) {
     this.caperucitaRojaY = caperucitaRojaY;
-  }
-
-  public int getSalidaX() {
-    return salidaX;
-  }
-
-  public void setSalidaX(int salidaX) {
-    this.salidaX = salidaX;
-  }
-
-  public int getSalidaY() {
-    return salidaY;
-  }
-
-  public void setSalidaY(int salidaY) {
-    this.salidaY = salidaY;
   }
 }

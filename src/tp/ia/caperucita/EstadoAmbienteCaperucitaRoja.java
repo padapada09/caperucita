@@ -12,9 +12,6 @@ public class EstadoAmbienteCaperucitaRoja extends EnvironmentState {
   private ArrayList<ArrayList<Integer>> world;
   private int caperucitaRojaX;
   private int caperucitaRojaY;
-  private int salidaX;
-
-  private int salidaY;
 
   public EstadoAmbienteCaperucitaRoja(ArrayList<ArrayList<Integer>> m) {
     world = m;
@@ -32,8 +29,6 @@ public class EstadoAmbienteCaperucitaRoja extends EnvironmentState {
   public void initState() {
     this.caperucitaRojaX = 8;
     this.caperucitaRojaY = 4;
-    this.salidaX = 4;
-    this.salidaY = 6;
     this.world = Helper.makeMap(false);
   }
 
@@ -79,21 +74,5 @@ public class EstadoAmbienteCaperucitaRoja extends EnvironmentState {
 
   public void setCaperucitaRojaY(int caperucitaRojaY) {
     this.caperucitaRojaY = caperucitaRojaY;
-  }
-
-  public int getSalidaX() {
-    return salidaX;
-  }
-
-  public void setSalidaX(int salidaX) {
-    this.salidaX = salidaX;
-  }
-
-  public int getSalidaY() {
-    return salidaY;
-  }
-
-  public void setSalidaY(int salidaY) {
-    this.salidaY = salidaY;
   }
 }

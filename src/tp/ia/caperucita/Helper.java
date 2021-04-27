@@ -30,6 +30,10 @@ public class Helper {
             return -1;
           }
         }
+        if (lineaDeVista.get(i) == PercepcionCaperucitaRoja.PERCEPCION_FLORES
+            && percepcion == PercepcionCaperucitaRoja.PERCEPCION_ARBOL) {
+          return i + 1;
+        }
         if (lineaDeVista.get(i) == percepcion) {
           return i;
         }
@@ -52,6 +56,10 @@ public class Helper {
              */
             return -1;
           }
+        }
+        if (lineaDeVista.get(i) == PercepcionCaperucitaRoja.PERCEPCION_FLORES
+            && percepcion == PercepcionCaperucitaRoja.PERCEPCION_ARBOL) {
+          return i - 1;
         }
         if (lineaDeVista.get(i) == percepcion) {
           return i;
@@ -111,7 +119,7 @@ public class Helper {
    * 1 1 0 0 0 1 0 0 0 //////////////////////////////////////////////////////////
    * 0 1 1 0 0 0 0 0 0 //////////////////////////////////////////////////////////
    * 0 3 1 1 1 0 1 0 1 //////////////////////////////////////////////////////////
-   * 0 0 0 1 0 0 0 0 1 //////////////////////////////////////////////////////////
+   * 0 0 0 1 4 0 0 0 1 //////////////////////////////////////////////////////////
    */
   public static ArrayList<ArrayList<Integer>> makeMap(boolean invisible) {
     ArrayList<ArrayList<Integer>> mapa = new ArrayList<>();
@@ -119,7 +127,7 @@ public class Helper {
     mapa.add(makeRow(0, 1, 0, 1, 1, 3, 0));
     mapa.add(makeRow(0, 0, 0, 0, 1, 1, 0));
     mapa.add(makeRow(0, 0, 0, 0, 0, 1, 1));
-    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 0));
+    mapa.add(makeRow(1, 0, 0, 0, 0, 1, 4));
     mapa.add(makeRow(0, 0, 2, 1, 0, 0, 0));
     mapa.add(makeRow(0, 0, 1, 0, 0, 1, 0));
     mapa.add(makeRow(2, 0, 0, 0, 0, 0, 0));
@@ -128,6 +136,8 @@ public class Helper {
       for (ArrayList<Integer> fila : mapa) {
         for (Integer cell : fila) {
           if (cell == PercepcionCaperucitaRoja.PERCEPCION_DULCE)
+            cell = 0;
+          if (cell == PercepcionCaperucitaRoja.PERCEPCION_LOBO)
             cell = 0;
           if (cell == PercepcionCaperucitaRoja.PERCEPCION_LOBO)
             cell = 0;

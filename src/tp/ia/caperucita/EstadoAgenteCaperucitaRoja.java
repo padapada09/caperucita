@@ -17,21 +17,15 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
   private int celdasVisitadas;
   /** Mundo percibido por Caperucita Roja */
   private ArrayList<ArrayList<Integer>> mapa;
-  /** Coordenadas de la salida */
-  private int salidaX;
-  private int salidaY;
 
   public EstadoAgenteCaperucitaRoja() {
     this.initState();
   };
 
-  public EstadoAgenteCaperucitaRoja(int dulces, int x, int y, ArrayList<ArrayList<Integer>> mapa, int salidaX,
-      int salidaY) {
+  public EstadoAgenteCaperucitaRoja(int dulces, int x, int y, ArrayList<ArrayList<Integer>> mapa) {
     this.dulces = dulces;
     this.x = x;
     this.y = y;
-    this.salidaX = salidaX;
-    this.salidaY = salidaY;
     this.celdasVisitadas = 0;
     this.mapa = mapa;
   };
@@ -61,8 +55,6 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
     Integer dulces = Integer.valueOf(this.dulces);
     Integer x = Integer.valueOf(this.x);
     Integer y = Integer.valueOf(this.y);
-    Integer salidaX = Integer.valueOf(this.salidaX);
-    Integer salidaY = Integer.valueOf(this.salidaY);
     ArrayList<ArrayList<Integer>> clonedMap = new ArrayList<>();
     for (ArrayList<Integer> columna : mapa) {
       ArrayList<Integer> newColumn = new ArrayList<>();
@@ -71,7 +63,7 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
       }
       clonedMap.add(newColumn);
     }
-    return new EstadoAgenteCaperucitaRoja(dulces, x, y, mapa, salidaX, salidaY);
+    return new EstadoAgenteCaperucitaRoja(dulces, x, y, mapa);
   }
 
   @Override
@@ -85,9 +77,6 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
     ArrayList<Integer> lineaDeVistaOeste = percepcion.getLineaDeVistaOeste();
 
     this.mapa.get(x).set(y, 0);
-
-    this.salidaX = percepcion.getSalidaX();
-    this.salidaY = percepcion.getSalidaY();
 
     for (int i = 0; i < lineaDeVistaNorte.size(); i++)
       this.mapa.get(this.x).set(this.y - i - 1, lineaDeVistaNorte.get(i));
@@ -149,19 +138,25 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
   }
 
   public int getSalidaX() {
-    return salidaX;
-  }
-
-  public void setSalidaX(int salidaX) {
-    this.salidaX = salidaX;
+    for (int x = 0; x < this.mapa.size(); x++) {
+      for (int y = 0; y < this.mapa.get(0).size(); y++) {
+        if (this.mapa.get(x).get(y) == PercepcionCaperucitaRoja.PERCEPCION_FLORES) {
+          return x;
+        }
+      }
+    }
+    throw new Error("Parece que el mapa no tiene ningún campo de flores");
   }
 
   public int getSalidaY() {
-    return salidaY;
-  }
-
-  public void setSalidaY(int salidaY) {
-    this.salidaY = salidaY;
+    for (int x = 0; x < this.mapa.size(); x++) {
+      for (int y = 0; y < this.mapa.get(0).size(); y++) {
+        if (this.mapa.get(x).get(y) == PercepcionCaperucitaRoja.PERCEPCION_FLORES) {
+          return y;
+        }
+      }
+    }
+    throw new Error("Parece que el mapa no tiene ningún campo de flores");
   }
 
   public ArrayList<Integer> getColumna(int x) {

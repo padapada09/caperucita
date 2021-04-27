@@ -39,8 +39,6 @@ public class AmbienteCaperucitaRoja extends Environment {
     perception.setLineaDeVistaOeste(Helper.getLineaDeVista(world, x, y, Helper.OESTE));
     perception.setCaperucitaRojaX(x);
     perception.setCaperucitaRojaY(y);
-    perception.setSalidaX(estadoAmbienteCaperucitaRoja.getSalidaX());
-    perception.setSalidaY(estadoAmbienteCaperucitaRoja.getSalidaY());
 
     return perception;
   }
