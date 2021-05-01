@@ -76,34 +76,34 @@ public class Helper {
   public static ArrayList<Integer> getLineaDeVista(ArrayList<ArrayList<Integer>> mapa, int x, int y, int direccion) {
     ArrayList<Integer> lineaDeVista = new ArrayList<>();
     switch (direccion) {
-    case NORTE:
-      for (int i = y - 1; i >= 0; i--) {
-        lineaDeVista.add(mapa.get(x).get(i));
-        if (mapa.get(x).get(i) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
-          break;
-      }
-      break;
-    case SUR:
-      for (int i = y + 1; i < mapa.get(x).size(); i++) {
-        lineaDeVista.add(mapa.get(x).get(i));
-        if (mapa.get(x).get(i) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
-          break;
-      }
-      break;
-    case OESTE:
-      for (int i = x - 1; i >= 0; i--) {
-        lineaDeVista.add(mapa.get(i).get(y));
-        if (mapa.get(i).get(y) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
-          break;
-      }
-      break;
-    case ESTE:
-      for (int i = x + 1; i < mapa.size(); i++) {
-        lineaDeVista.add(mapa.get(i).get(y));
-        if (mapa.get(i).get(y) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
-          break;
-      }
-      break;
+      case NORTE:
+        for (int i = y - 1; i >= 0; i--) {
+          lineaDeVista.add(mapa.get(x).get(i));
+          if (mapa.get(x).get(i) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
+            break;
+        }
+        break;
+      case SUR:
+        for (int i = y + 1; i < mapa.get(x).size(); i++) {
+          lineaDeVista.add(mapa.get(x).get(i));
+          if (mapa.get(x).get(i) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
+            break;
+        }
+        break;
+      case OESTE:
+        for (int i = x - 1; i >= 0; i--) {
+          lineaDeVista.add(mapa.get(i).get(y));
+          if (mapa.get(i).get(y) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
+            break;
+        }
+        break;
+      case ESTE:
+        for (int i = x + 1; i < mapa.size(); i++) {
+          lineaDeVista.add(mapa.get(i).get(y));
+          if (mapa.get(i).get(y) == PercepcionCaperucitaRoja.PERCEPCION_ARBOL)
+            break;
+        }
+        break;
     }
 
     return lineaDeVista;
@@ -137,11 +137,11 @@ public class Helper {
         { 1, 1, 0, 0, 0, 0, 0, 0, 0 }, /////////////////////////////////////////////
         { 0, 0, 0, 0, 1, 0, 1, 0, 0 }, /////////////////////////////////////////////
         { 0, 2, 0, 0, 1, 2, 0, 1, 0 }, /////////////////////////////////////////////
-        { 1, 1, 1, 0, 0, 0, 1, 1, 1 } /////////////////////////////////////////////
+        { 1, 1, 1, 3, 0, 0, 1, 1, 1 } /////////////////////////////////////////////
     });
 
     if (invisible) {
-      for (ArrayList<Integer> fila : mapaTres) {
+      for (ArrayList<Integer> fila : mapaUno) {
         for (Integer cell : fila) {
           if (cell == PercepcionCaperucitaRoja.PERCEPCION_DULCE)
             cell = 0;
@@ -152,7 +152,7 @@ public class Helper {
         }
       }
     }
-    return mapaTres;
+    return mapaUno;
   };
 
   public static ArrayList<Integer> makeRow(Integer... values) {
