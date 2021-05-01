@@ -50,6 +50,7 @@ public class IrAlOeste extends SearchAction {
     estadoAgenteCaperucitaRoja.setX(proximaColumna);
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaX(proximaColumna);
+    estadoAmbienteCaperucitaRoja.moverLobo();
 
     return estadoAmbienteCaperucitaRoja;
   }

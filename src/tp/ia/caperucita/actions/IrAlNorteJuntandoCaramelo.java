@@ -51,6 +51,7 @@ public class IrAlNorteJuntandoCaramelo extends SearchAction {
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaY(proximaFila);
     estadoAgenteCaperucitaRoja.setDulces(estadoAgenteCaperucitaRoja.getDulces() + 1);
+    estadoAmbienteCaperucitaRoja.moverLobo();
 
     return estadoAmbienteCaperucitaRoja;
   }

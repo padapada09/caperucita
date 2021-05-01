@@ -51,6 +51,7 @@ public class IrAlOesteJuntandoCaramelo extends SearchAction {
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaX(proximaColumna);
     estadoAgenteCaperucitaRoja.setDulces(estadoAgenteCaperucitaRoja.getDulces() + 1);
+    estadoAmbienteCaperucitaRoja.moverLobo();
 
     return estadoAmbienteCaperucitaRoja;
   }

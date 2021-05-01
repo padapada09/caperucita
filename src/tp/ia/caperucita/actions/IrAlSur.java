@@ -50,6 +50,7 @@ public class IrAlSur extends SearchAction {
     estadoAgenteCaperucitaRoja.setY(proximaFila);
     estadoAgenteCaperucitaRoja.contarCeldaVisitada();
     estadoAmbienteCaperucitaRoja.setCaperucitaRojaY(proximaFila);
+    estadoAmbienteCaperucitaRoja.moverLobo();
 
     return estadoAmbienteCaperucitaRoja;
   }
