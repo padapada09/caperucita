@@ -15,7 +15,13 @@ public class Heuristica implements IEstimatedCostFunction {
   @Override
   public double getEstimatedCost(NTree node) {
     EstadoAgenteCaperucitaRoja estadoAgenteCaperucitaRoja = (EstadoAgenteCaperucitaRoja) node.getAgentState();
-
-    return (4 - estadoAgenteCaperucitaRoja.getDulces());
+    int salidaX = estadoAgenteCaperucitaRoja.getSalidaX();
+    int salidaY = estadoAgenteCaperucitaRoja.getSalidaY();
+    int caperucitaX = estadoAgenteCaperucitaRoja.getX();
+    int caperucitaY = estadoAgenteCaperucitaRoja.getX();
+    int catetoUno = Math.abs(salidaX - caperucitaX);
+    int catetoDos = Math.abs(salidaY - caperucitaY);
+    double distancia = Math.sqrt((catetoUno * catetoUno) + (catetoDos * catetoDos));
+    return distancia;
   }
 }
