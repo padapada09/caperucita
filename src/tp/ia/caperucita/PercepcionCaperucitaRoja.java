@@ -21,6 +21,9 @@ public class PercepcionCaperucitaRoja extends Perception {
   private ArrayList<Integer> lineaDeVistaOeste;
   private int caperucitaRojaX;
   private int caperucitaRojaY;
+  private int vidasCaperucitaRoja;
+  private int dulcesCaperucitaRoja;
+  private int celdasVisitadasCaperucita;
 
   public PercepcionCaperucitaRoja() {
   }
@@ -44,6 +47,8 @@ public class PercepcionCaperucitaRoja extends Perception {
     this.setLineaDeVistaOeste(Helper.getLineaDeVista(world, x, y, Helper.OESTE));
     this.setCaperucitaRojaX(x);
     this.setCaperucitaRojaY(y);
+    this.setVidasCaperucitaRoja(estadoAmbienteCaperucitaRoja.getVidasCaperucitaRoja());
+    this.setDulcesCaperucitaRoja(estadoAmbienteCaperucitaRoja.getDulcesCaperucita());
   }
 
   @Override
@@ -100,5 +105,29 @@ public class PercepcionCaperucitaRoja extends Perception {
 
   public void setCaperucitaRojaY(int caperucitaRojaY) {
     this.caperucitaRojaY = caperucitaRojaY;
+  }
+
+  public int getVidasCaperucitaRoja() {
+    return vidasCaperucitaRoja;
+  }
+
+  public void setVidasCaperucitaRoja(int vidasCaperucitaRoja) {
+    this.vidasCaperucitaRoja = vidasCaperucitaRoja;
+  }
+
+  public int getDulcesCaperucitaRoja() {
+    return dulcesCaperucitaRoja;
+  }
+
+  public void setDulcesCaperucitaRoja(int dulcesCaperucitaRoja) {
+    this.dulcesCaperucitaRoja = dulcesCaperucitaRoja;
+  }
+
+  public int getCeldasVisitadasCaperucita() {
+    return celdasVisitadasCaperucita;
+  }
+
+  public void setCeldasVisitadasCaperucita(int celdasVisitadasCaperucita) {
+    this.celdasVisitadasCaperucita = celdasVisitadasCaperucita;
   }
 }

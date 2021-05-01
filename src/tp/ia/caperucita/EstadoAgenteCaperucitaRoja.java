@@ -15,6 +15,9 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
   private int y;
   /** Cantidad de celdas ya visitadas */
   private int celdasVisitadas;
+  /** Cantidad de vidas restantes */
+  private int vidas;
+
   /** Mundo percibido por Caperucita Roja */
   private ArrayList<ArrayList<Integer>> mapa;
 
@@ -26,6 +29,7 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
     this.dulces = dulces;
     this.x = x;
     this.y = y;
+    this.vidas = 3;
     this.celdasVisitadas = 0;
     this.mapa = mapa;
   };
@@ -71,6 +75,9 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
     PercepcionCaperucitaRoja percepcion = (PercepcionCaperucitaRoja) p;
     this.x = percepcion.getCaperucitaRojaX();
     this.y = percepcion.getCaperucitaRojaY();
+    this.vidas = percepcion.getVidasCaperucitaRoja();
+    this.dulces = percepcion.getDulcesCaperucitaRoja();
+    this.celdasVisitadas = percepcion.getCeldasVisitadasCaperucita();
     ArrayList<Integer> lineaDeVistaNorte = percepcion.getLineaDeVistaNorte();
     ArrayList<Integer> lineaDeVistaEste = percepcion.getLineaDeVistaEste();
     ArrayList<Integer> lineaDeVistaSur = percepcion.getLineaDeVistaSur();
@@ -94,6 +101,7 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
   @Override
   public void initState() {
     this.celdasVisitadas = 0;
+    this.vidas = 3;
     this.mapa = Helper.makeMap(true);
   }
 
@@ -127,6 +135,18 @@ public class EstadoAgenteCaperucitaRoja extends SearchBasedAgentState {
 
   public void setMapa(ArrayList<ArrayList<Integer>> mapa) {
     this.mapa = mapa;
+  }
+
+  public void setCeldasVisitadas(int celdasVisitadas) {
+    this.celdasVisitadas = celdasVisitadas;
+  }
+
+  public int getVidas() {
+    return vidas;
+  }
+
+  public void setVidas(int vidas) {
+    this.vidas = vidas;
   }
 
   public void contarCeldaVisitada() {
