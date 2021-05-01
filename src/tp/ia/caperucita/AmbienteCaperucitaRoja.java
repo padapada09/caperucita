@@ -50,6 +50,6 @@ public class AmbienteCaperucitaRoja extends Environment {
 
   @Override
   public boolean agentFailed(Action actionReturned) {
-    return false;
+    return this.getEnvironmentState().getVidasCaperucitaRoja() == 0;
   }
 }
